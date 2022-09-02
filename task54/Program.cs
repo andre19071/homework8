@@ -24,7 +24,7 @@ PrintArray(numbers);
 
 void SortArray(int[,] array)
 {
-    int buffer = 0;
+    int count = 0;
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 1; j < array.GetLength(1); j++)
@@ -33,9 +33,9 @@ void SortArray(int[,] array)
             {
                 if (array[i, n] > array[i, n - 1])
                 {
-                    buffer = array[i, n - 1];
+                    count = array[i, n - 1];
                     array[i, n - 1] = array[i, n];
-                    array[i, n] = buffer;
+                    array[i, n] = count;
                 }
             }
         }
