@@ -6,3 +6,41 @@
 // Результирующая матрица будет:
 // 18 20
 // 15 18;
+
+Console.Write("Введите количество строк: ");
+int lines = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите количество столбцов: ");
+int columns = Convert.ToInt32(Console.ReadLine());
+int[,] numbers = new int[lines, columns];
+int[,] numbers2 = new int[lines, columns];
+int[,] numbersMult = new int[lines, columns];
+
+FillArray(numbers);
+FillArray(numbers2);
+Console.WriteLine($"Матрица 1");
+PrintArray(numbers);
+Console.WriteLine($"Матрица 2");
+PrintArray(numbers2);
+
+for (int i = 0; i < numbers.GetLength(0); i++)
+   for (int j = 0; j < numbers.GetLength(1); j++)
+        numbersMult[i, j] = numbers[i, j] * numbers2[i, j];
+Console.WriteLine($"Произведение элементов матрицы 1 и 2");
+PrintArray(numbersMult);
+
+void FillArray(int[,] array)
+{
+    Random rand = new Random();
+    for (int i = 0; i < array.GetLength(0); i++)
+        for (int j = 0; j < array.GetLength(1); j++)
+            array[i, j] = rand.Next(0, 10);
+}
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++) {
+        for (int j = 0; j < array.GetLength(1); j++)
+            Console.Write(array[i, j] + "; ");
+        Console.WriteLine();
+    }
+}
+
